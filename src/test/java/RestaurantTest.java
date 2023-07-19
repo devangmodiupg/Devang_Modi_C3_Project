@@ -113,10 +113,28 @@ class RestaurantTest {
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
         String[] itemNames = {""};
-        assertEquals(388,restaurant.getOrderTotalValue(itemNames));
+        assertEquals(0,restaurant.getOrderTotalValue(itemNames));
     }
 
+    @Test
+    public void order_total_value_with_1_items_should_return_price_of_that_item()  {
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        String[] itemNames = {"Sweet corn soup"};
+        assertEquals(119,restaurant.getOrderTotalValue(itemNames));
+    }
 
+    @Test
+    public void order_total_value_with_4_items_should_return_price_of_all_items()  {
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Sizzling Brownie",319);
+        restaurant.addToMenu("Vanilla Ice Cream", 100);
+        String[] itemNames = {"Sweet corn soup", "Vegetable lasagne", "Sizzling Brownie", "Vanilla Ice Cream"};
+        assertEquals(807,restaurant.getOrderTotalValue(itemNames));
+    }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL VALUE TEST CASES>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
