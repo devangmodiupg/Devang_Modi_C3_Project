@@ -68,5 +68,9 @@ public class Restaurant {
         return name;
     }
 
+    public int getOrderTotalValue(String[] itemNames) {
+        int orderTotalValue = 0;
 
+        return orderTotalValue;
+    }
 }

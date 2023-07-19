@@ -102,4 +102,21 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL VALUE TEST CASES - TDD Way>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void order_total_value_with_no_items_should_return_0() {
+
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        String[] itemNames = {""};
+        assertEquals(388,restaurant.getOrderTotalValue(itemNames));
+    }
+
+
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL VALUE TEST CASES>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
